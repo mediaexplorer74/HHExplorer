@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "HHExplorer": {
+      "commandName": "Project",
+      "nativeDebugging": true,
+      "jsWebView2Debugging": true,
+      "sqlDebugging": true
+    }
+  }
+}
