@@ -10,7 +10,7 @@
   <Identity
     Name="ME.HHExplorer1"
     Publisher="CN=media"
-    Version="1.0.0.0" />
+    Version="1.0.2.0" />
 
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-8485-68815c448590" PhonePublisherId="4850fd3e-0000-0000-0000-fd3e00000485"/>
 

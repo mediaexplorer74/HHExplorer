@@ -4,6 +4,7 @@ using HHLibrary;
 using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Essentials;
+using System.Xml.Linq;
 
 namespace HHExplorer
 {
@@ -33,10 +34,24 @@ namespace HHExplorer
 
         async void OnButtonClicked(object sender, EventArgs e)
         {
-            List<Vacancy> repositories = 
-                await _restService.GetRepositoriesAsync(Constants.HHAPIGetVacancies);
+            if (VacancyName.Text == null || VacancyName.Text == "")
+            {
+                await DisplayAlert("", "Не введено название вакансии", "OK");
+            }
+            else
+            { 
+                List<Vacancy> repositories =
+                    await _restService.GetRepositoriesAsync(Constants.HHAPIGetVacancies
+                    + "?text=" + VacancyName.Text +
+                    "&area=1" +
+                    "&page=1"
+                    +"&per_page=50");
 
-            collectionView.ItemsSource = repositories;
+                Debug.WriteLine(repositories.ToString());
+
+                collectionView.ItemsSource = repositories;
+            }
+           
         }//OnButtonClicked
 
 

@@ -4,7 +4,8 @@
              x:Class="HHExplorer.MainPage">
 
     <StackLayout Margin="20,35,20,20">
-        <Button Text="Получить данные от HH (Программист, Москва)"
+        <Entry x:Name="VacancyName" Placeholder="Название вакансии"/>
+        <Button Text="Получить данные от HH (Москва)"
                 Clicked="OnButtonClicked" />
 
         <!-- ItemsSource="{Binding .}" -->

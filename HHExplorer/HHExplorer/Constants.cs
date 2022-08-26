@@ -3,7 +3,7 @@
     public static class Constants
     {
         public const string HHAPIGetVacancies =
-            "http://api.hh.ru/vacancies?text=Программист&area=1";
+            "http://api.hh.ru/vacancies";
       
     }
 }
