@@ -15,31 +15,31 @@ namespace HHLibrary
         public long Id { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get;  set; }
+        public string? Name { get;  set; }
 
         [JsonProperty("salary")]
-        public Salary Salary { get; set; }
+        public Salary? Salary { get; set; }
 
         [JsonProperty("employer")]
-        public Employer Employer { get; set; }
+        public Employer? Employer { get; set; }
 
         [JsonProperty("address")]
-        public Address Address { get; set; }
+        public Address? Address { get; set; }
 
         [JsonProperty("published_at")]
-        public string Published_at { get; set; }
+        public string? Published_at { get; set; }
 
         [JsonProperty("alternate_url")]
-        public string Alternate_url { get; set; }
+        public string? Alternate_url { get; set; }
 
         [JsonProperty("schedule")]
-        public Schedule Schedule { get; set; }
+        public Schedule? Schedule { get; set; }
 
         [JsonProperty("salary_from")]
-        public string Salary_from { get; set; }
+        public string? Salary_from { get; set; }
 
         [JsonProperty("salary_to")]
-        public string Salary_to { get; set; }
+        public string? Salary_to { get; set; }
 
 
     }//Vacancy model end

@@ -12,16 +12,16 @@ namespace HHLibrary
     public struct Salary
     {
         [JsonProperty("from")]
-        public string From { get; set; }
+        public string? From { get; set; }
 
         [JsonProperty("to")]
-        public string To { get;  set; }
+        public string? To { get;  set; }
 
         [JsonProperty("currency")]
-        public string Currency { get; set; }
+        public string? Currency { get; set; }
 
         [JsonProperty("gross")]
-        public string Gross { get; set; }
+        public string? Gross { get; set; }
 
        
     }//Salary model end

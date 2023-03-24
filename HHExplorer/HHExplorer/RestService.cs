@@ -45,22 +45,22 @@ namespace HHLibrary
 
             try
             {
-                Debug.WriteLine("[i] await _client.GetAsync " + uri);
+                //Debug.WriteLine("[i] await _client.GetAsync " + uri);
 
                 HttpResponseMessage response = await _client.GetAsync(uri);
 
-                Debug.WriteLine("[i] HttpResponseMessage response code=" 
-                    + response.StatusCode);
+                //Debug.WriteLine("[i] HttpResponseMessage response code=" 
+                //    + response.StatusCode);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Debug.WriteLine("[i] content="
-                   + response.Content.ToString());
+                    //Debug.WriteLine("[i] content="
+                   //+ response.Content.ToString());
 
                     string json = await response.Content.ReadAsStringAsync();
 
-                    Debug.WriteLine("[i] json="
-                    + json);
+                    //Debug.WriteLine("[i] json="
+                    //+ json);
 
                    
                     JToken apiJsonDocument = JToken.Parse(json);
@@ -72,32 +72,34 @@ namespace HHLibrary
                     // RnD: JsonProperty
                     foreach (JToken pocketItemJsonProperty in Llist)
                     {
-                        try
-                        {
-                            string s = pocketItemJsonProperty.ToString();                              
+                        //try
+                        //{
+                            string s = pocketItemJsonProperty.ToString();
+
+                            Debug.WriteLine("parsestring: " + s);
 
                             Vacancy hhItem = JsonConvert.DeserializeObject<Vacancy>(s);
 
                             // trim lead and end spaces
                             hhItem.Name = hhItem.Name.Trim();
 
-                            string S1 = hhItem.Salary.From != null ? hhItem.Salary.Currency : "";
+                            string S1 = hhItem.Salary?.From != null ? hhItem.Salary?.Currency : "";
                             
                             hhItem.Salary_from = 
-                                hhItem.Salary.From + " " + S1;
+                                hhItem.Salary?.From + " " + S1;
 
-                            string S2 = hhItem.Salary.To != null ? hhItem.Salary.Currency : "";
+                            string S2 = hhItem.Salary?.To != null ? hhItem.Salary?.Currency : "";
 
                             hhItem.Salary_to = 
-                                hhItem.Salary.To +   " " + S2;
+                                hhItem.Salary?.To +   " " + S2;
 
                             Debug.WriteLine(hhItem.Name);
                             repositories.Add(hhItem);
-                        }
-                        catch (Exception ex)
-                        {
-                            Debug.WriteLine("[ex] Parsing error: " + ex.Message);
-                        }
+                        //}
+                        //catch (Exception ex)
+                        //{
+                        //    Debug.WriteLine("[ex] Parsing error: " + ex.Message);
+                        //}
 
                     }//foreach
                 }
