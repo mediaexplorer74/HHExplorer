@@ -6,9 +6,9 @@
   <!--Pages can be added as references or inline-->
     <TabbedPage.Children>
         <views:AuthPage Title="Auth"> </views:AuthPage>
-            <views:NewsPage Title="Vacancies"></views:NewsPage>
-        <!--views:NewsPage Title="Entertainment"></views:NewsPage>
-        <views:NewsPage Title="General"></views:NewsPage>
+        <views:VacanciesPage Title="Vacancies"></views:VacanciesPage>
+        <views:ResumesPage Title="Resumes"></views:ResumesPage>
+        <!--views:NewsPage Title="General"></views:NewsPage>
         <views:NewsPage Title="Health"></views:NewsPage>
         <views:NewsPage Title="Science"></views:NewsPage>
         <views:NewsPage Title="Sports"></views:NewsPage>

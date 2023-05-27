@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace News
 {
@@ -12,6 +13,14 @@ namespace News
 
         public App()
         {
+            // try to get (restore) "accesstoken" settings
+            string accesstoken = Preferences.Get("accesstoken", "");
+            if (accesstoken != "")
+            {
+                AccessToken = accesstoken;
+                UserLogined = true;
+            }
+
             InitializeComponent();
 
             MainPage = new NavigationPage(new Views.MainPage());

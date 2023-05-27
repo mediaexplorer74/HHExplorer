@@ -2,7 +2,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="HHWebAuthenticator.Views.UserDetailsPage"
+    x:Class="News.Views.ResumesPage"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     BackgroundColor="#2196F3"
     ios:Page.UseSafeArea="true" >
@@ -15,21 +15,13 @@
                    TextColor="White"/>
           </Frame>
 
-        <Button x:Name="Btn1" 
+          <Button x:Name="Btn1" 
                             Text="Refresh all your resumes" 
                             Clicked="ResumeUpdateButtonClick"/>
 
-            <Entry x:Name="TBox1" Text="" 
-                           HorizontalTextAlignment="Center" 
-                           Height="300"
-                           />
-        
-            <Button HeightRequest="40" Margin="20,150,20,0"
-                BackgroundColor="White" TextColor="#2196F3" FontSize="Medium" 
-                FontAttributes="Bold"
-                Text="Log Out"
-                HorizontalOptions="FillAndExpand" VerticalOptions="End" 
-                Clicked="Logout_Button_Clicked" ></Button>    
+          <Entry x:Name="TBox1" Text="" 
+             HorizontalTextAlignment="Center" 
+           />
     
         </StackLayout>
             

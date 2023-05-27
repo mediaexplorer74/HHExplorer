@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using HHLibrary.Models;
 using HHWebAuthenticator;
 using HHWebAuthenticator.HH;
-using HHWebAuthenticator.Views;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace News.Views
 {
@@ -14,22 +14,52 @@ namespace News.Views
         public AuthPage()
         {
             InitializeComponent();
-            this.Title = "Login";
+            if (!App.UserLogined)
+            {
+                LoginBtn.Text = "Login";
+            }
+            else
+            {
+                LoginBtn.Text = "Log out";
+            }
         }
 
         public async Task Login_Button_Clicked(Object sender, EventArgs e)
         {
-            Debug.WriteLine("[i] Checkpoint 1");
-            await StartHHAuthenticationAsync();
-
-            Debug.WriteLine("[i] Checkpoint 2");
-            //RnD
-            if (App.UserLogined)
+            if (!App.UserLogined)
             {
-                this.Title = "AT=" + App.AccessToken;
-                Debug.WriteLine("[i] User logined!");
-                //await this.Navigation.PushAsync(new UserDetailsPage(),true);
-                await this.Navigation.PushAsync(new UserDetailsPage(),true);
+                Debug.WriteLine("[i] Checkpoint 1");
+
+                await StartHHAuthenticationAsync();
+
+                Debug.WriteLine("[i] Checkpoint 2");
+
+                if (App.UserLogined)
+                {
+                    //this.Title = "AT=" + App.AccessToken;
+                    Debug.WriteLine("[i] User logined!");
+                    LoginBtn.Text = "Log out";
+
+                    //await this.Navigation.PushAsync(new UserDetailsPage(),true);
+
+                    //store "accesstoken" settings
+                    Preferences.Set("accesstoken", App.AccessToken);
+                }
+            }
+            else
+            {
+                //Always logined. Log out...
+                try
+                {
+                    Preferences.Remove("accesstoken");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("[ex] Remove accesstoken problem: "
+                      + ex.Message);
+                }
+
+                LoginBtn.Text = "Login";
             }
             return;
         }
@@ -66,13 +96,7 @@ namespace News.Views
             }
             else
             {
-                Debug.WriteLine("[i] Login (scheme A) failed , try plan B");
-
-                //_tokenResponse.access_token 
-                //    = "P22U04L64BJF7M071R0DRON4A5Q5BIKE8LOUIEDD52R9R74H117L1S9SHUELEDNC";
-                //_tokenResponse.expires_in = 10000;
-                //_tokenResponse.refresh_token = "";
-                //this.Navigation.PushAsync(new UserDetailsPage());
+                Debug.WriteLine("[e] Error fetching token!!");
             }
 
             // RnD: await 

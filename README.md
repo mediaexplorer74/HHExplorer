@@ -13,7 +13,8 @@ RU only. Только для России.
 ## Current Status
 - Damaged / transformed to "HH concept" (idea only; horizontal menu added). Функционал разрушен, счас это всё лишь "концепт" нового HH...
 - Min. Win. os. build = 15063 (No Astoria compatibility). Минимальная версия сборки Windows изменена на 15063 (совместимость с Astoria нарушена) 
-- Auth (Login) page added. No settings store at now.
+- Auth (Login) page added. The access token stored when the user logined (and acc. token removed when the user "log-outed").
+- Resumes page added. Just Click Resume refresh to refresh date-time "marker" for all your resumes :)
 - Android/iOS targets are only "dummies" (stubs) at now.
 
 ## How to get your HH credentials?
@@ -23,6 +24,7 @@ RU only. Только для России.
 ## TODO
 - Add Map. Добавить Карту.
 - Add Geo-location. Реализовать некую геолокацию (привязку вакансий к опр. станции метро и т.п.).
+- Add normal LixBox/TextBlock for Resumes page and etc.
 
 ## .
 

@@ -47,6 +47,12 @@
     <Compile Update="Views\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\VacanciesPage.xaml.cs">
+      <DependentUpon>VacanciesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ResumesPage.xaml.cs">
+      <DependentUpon>ResumesPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -65,7 +71,7 @@
     <EmbeddedResource Update="Views\AuthPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\UserDetailsPage.xaml">
+    <EmbeddedResource Update="Views\ResumesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

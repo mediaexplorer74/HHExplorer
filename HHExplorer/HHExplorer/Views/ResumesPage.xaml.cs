@@ -8,34 +8,29 @@ using Newtonsoft.Json;
 using Xamarin.Forms;
 using HHLibrary.Models;
 
-namespace HHWebAuthenticator.Views
+namespace News.Views
 {
-    public partial class UserDetailsPage : ContentPage
+    public partial class ResumesPage : ContentPage
     {
         //Models.HHResponseModel HHAccessToken;
 
-        public UserDetailsPage()
+        public ResumesPage()
         {
             this.InitializeComponent();
 
-            this.Title = "User Details";
-            
+            this.Title = "Resume group tasks";
+
             //HHAccessToken = HHConfiguration.TokenResponse;
-            Debug.WriteLine("HH Access token: " + HHConfiguration.TokenResponse);
-            TBox1.Text = "HH Access token: " + HHConfiguration.TokenResponse;
+            Debug.WriteLine("HH Access token: " + App.AccessToken); //HHConfiguration.TokenResponse.access_token);
+            TBox1.Text = "HH Access token: " + App.AccessToken; //HHConfiguration.TokenResponse.access_token;
 
             //FetchUserActivity();
             //FetchUserProfile();
             TBox1.Text = TBox1.Text + " " 
-                + $"Welcome! Press the Resume refresh button to refresh all resume.";
+                + $"Press the RESUME REFRESH button to refresh all your resumes";
 
         }
 
-        void Logout_Button_Clicked(Object sender, EventArgs e)
-        {
-            //TODO: Pending to implement this
-            // Basically what you will need to revoke tokens
-        }
 
         void FetchUserProfile()
         {
@@ -69,7 +64,7 @@ namespace HHWebAuthenticator.Views
                 client.BaseAddress = new Uri("https://api.hh.ru");
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer",
-                    HHConfiguration.TokenResponse.access_token);
+                    App.AccessToken/*HHConfiguration.TokenResponse.access_token*/);
                 client.DefaultRequestHeaders.UserAgent.ParseAdd
                 (
                     $"HHExplorer/1 (me@nm.ru)"
@@ -113,7 +108,7 @@ namespace HHWebAuthenticator.Views
         }//ResumeUpdateButtonClick end
 
 
-
+        // 1 resume date-time update
         async void ResumeRefreshAsync(string ResumeId)
         {
             // - A -
@@ -122,7 +117,7 @@ namespace HHWebAuthenticator.Views
                 client.BaseAddress = new Uri("https://api.hh.ru");
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer",
-                    HHConfiguration.TokenResponse.access_token);
+                    App.AccessToken/*HHConfiguration.TokenResponse.access_token*/);
                 client.DefaultRequestHeaders.UserAgent.ParseAdd
                 (
                     $"HHExplorer/1 (me@nm.ru)"

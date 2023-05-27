@@ -17,7 +17,7 @@ namespace News.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class NewsPage : ContentPage
+    public partial class VacanciesPage : ContentPage
     {
         HHRestService _restService;
 
@@ -31,7 +31,7 @@ namespace News.Views
             void RunUri(string s_uri);
         }
 
-        public NewsPage()
+        public VacanciesPage()
         {
             InitializeComponent();
 
@@ -114,11 +114,11 @@ namespace News.Views
     }//class end
 
     /*
-    public partial class NewsPage : ContentPage
+    public partial class VacanciesPage : ContentPage
     {
-        private readonly NewsService _newsService;
-        private NewsCategory _category;
-        public NewsPage()
+        private readonly VacanciesService _vacanciesService;
+        private VacanciesCategory _category;
+        public VacanciesPage()
         {
             InitializeComponent();
             _newsService = new();
