@@ -23,7 +23,8 @@ namespace News.Views
         private async void NewsList_OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             var tappedItem = (NewsItem)e.Item;
-            await Navigation.PushAsync(new ArticleView(tappedItem.Url));
+            //await Navigation.PushAsync(new ArticleView(tappedItem.Url));
+            await Navigation.PushAsync(new ArticleView());
         }
     }
 }

@@ -1,6 +1,4 @@
-<?xml
-    version = "1.0"
-    encoding = "utf-8"?>
+<?xml version = "1.0" encoding = "utf-8"?>
 
 <ContentPage
     xmlns = "http://xamarin.com/schemas/2014/forms"
@@ -11,19 +9,26 @@
     ios:Page.UseSafeArea="true"
     x:Class = "News.Views.NewsPage">
     <StackLayout>
-        <Button Text="Refresh" Clicked="Button_OnClicked"></Button>
-            <Label x:Name="Label" Text="{Binding .}"
+        <!--Button Text="Refresh" Clicked="Button_OnClicked"></Button-->
+
+        <Entry x:Name="VacancyName" Placeholder="Название вакансии"/>
+        
+        <Button Text="Получить данные от HH (Москва)"
+                Clicked="OnButtonClicked" />
+
+        <Label x:Name="Label" Text="{Binding .}"
                    HorizontalOptions="Center"
                    VerticalOptions="Center">
-            </Label>
+        </Label>
         <Grid>
             <ActivityIndicator IsRunning="False" x:Name="ActivityIndicator" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center">
-      </ActivityIndicator>
+            </ActivityIndicator>
         </Grid>
+        
         <Grid>
-        <ListView x:Name="NewsList" ItemTapped="NewsList_OnItemTapped">
+        <!--ListView x:Name="NewsList" ItemTapped="NewsList_OnItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell ImageSource="{Binding UrlToImage}"
@@ -32,7 +37,58 @@
                     </ImageCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
-    </Grid>
+        </ListView-->
+
+            <ListView x:Name="NewsList" 
+                  BackgroundColor="LightBlue"                   
+                  ItemSelected="OnItemSelected"
+                  SeparatorVisibility="None"
+                  >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Margin="5" BackgroundColor="LightGray">
+                                    <Label Text="{Binding Alternate_url}"
+                                TextColor="Green"
+                                FontSize="Small" />
+
+                                    <Label Text="{Binding Name}"
+                                TextColor="Green"
+                                FontSize="Small" />
+
+                                    <Label Text="{Binding Employer.Name}"
+                                TextColor="DarkBlue"
+                                FontSize="Small" />
+
+
+                                    <Label Text="{Binding Salary_from}"
+                                TextColor="Black"
+                                FontSize="Small" />
+
+                                    <Label Text="{Binding Salary_to}"
+                                TextColor="Black"
+                                FontSize="Small" />
+
+                                    <Label Text="{Binding Address.Raw}"
+                                TextColor="DarkOrange"
+                                FontSize="Small" />
+
+                                    <Label Text="{Binding Published_at}"
+                                TextColor="DarkOrange"
+                                FontSize="Small" />
+
+                                    <Label Text="{Binding Schedule.Name}"
+                                TextColor="DarkBlue"
+                                FontSize="Small" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </StackLayout>
 </ContentPage>

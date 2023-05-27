@@ -6,9 +6,9 @@ using Xamarin.Forms;
 using Xamarin.Essentials;
 using System.Xml.Linq;
 
-namespace HHExplorer
+namespace News.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class ArticleView : ContentPage
     {
         RestService _restService;
 
@@ -22,7 +22,7 @@ namespace HHExplorer
             void RunUri(string s_uri);
         }
 
-        public MainPage()
+        public ArticleView()
         {
             InitializeComponent();
 
@@ -119,6 +119,7 @@ namespace News.Views
         {
             InitializeComponent();
          }
+
         public ArticleView(string Url)
         {
             InitializeComponent();

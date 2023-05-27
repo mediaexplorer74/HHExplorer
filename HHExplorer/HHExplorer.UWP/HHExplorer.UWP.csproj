@@ -22,7 +22,7 @@
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <PackageCertificateKeyFile>News.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
-    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundle>Always</AppxBundle>
@@ -156,7 +156,7 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.8" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\News\HHExplorer.csproj">
+    <ProjectReference Include="..\HHExplorer\HHExplorer.csproj">
       <Project>{13D88F3C-BC03-4A08-915A-F301CEB1EB2D}</Project>
       <Name>HHExplorer</Name>
     </ProjectReference>
@@ -170,7 +170,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadXFormsNugetUpgradeInfoBarNewsUWPHideInfoBar="True" />
+      <UserProperties XamarinHotReloadXFormsNugetUpgradeInfoBarHHExplorerUWPHideInfoBar="True" XamarinHotReloadXFormsNugetUpgradeInfoBarNewsUWPHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

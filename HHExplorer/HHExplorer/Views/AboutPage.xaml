@@ -6,7 +6,7 @@
 
     <StackLayout>
         <Frame BackgroundColor="DarkBlue" Padding="24" CornerRadius="0">
-            <Label Text="Project News (multi-platform app)" HorizontalTextAlignment="Center" 
+            <Label Text="HHExplorer 1.1.1 (multi-platform app)" HorizontalTextAlignment="Center" 
                    TextColor="White" FontSize="Large"/>
         </Frame>
         <Label Text="News in Xamarin.Forms" FontSize="Medium"/>
