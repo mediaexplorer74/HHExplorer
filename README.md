@@ -5,6 +5,9 @@ HeadHunter (hh.ru) Vacancies explorer. Штука для взаимодейст�
 
 RU only. Только для России.
 
+## Screenshots. Скриншоты
+![](Images/shot1.png)
+![](Images/shot2.png)
 
 ## Current Status
 - Damaged / transformed to "HH concept" (idea only; horizontal menu added). Функционал разрушен, счас это всё лишь "концепт" нового HH...
