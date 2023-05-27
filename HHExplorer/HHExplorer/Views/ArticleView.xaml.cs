@@ -12,7 +12,7 @@ namespace HHExplorer
     {
         RestService _restService;
 
-      
+
         // 1 Interface connector
         IMegaClient megaClient;
 
@@ -39,19 +39,19 @@ namespace HHExplorer
                 await DisplayAlert("", "Не введено название вакансии", "OK");
             }
             else
-            { 
+            {
                 List<Vacancy> repositories =
                     await _restService.GetRepositoriesAsync(Constants.HHAPIGetVacancies
                     + "?text=" + VacancyName.Text +
                     "&area=1" +
                     "&page=1"
-                    +"&per_page=50");
+                    + "&per_page=50");
 
                 Debug.WriteLine(repositories.ToString());
 
                 collectionView.ItemsSource = repositories;
             }
-           
+
         }//OnButtonClicked
 
 
@@ -75,7 +75,7 @@ namespace HHExplorer
 
             if (idx < 0) return;
 
-  
+
 
             // Make Dialog Popup
             bool choosedresult = await DisplayAlert
@@ -102,6 +102,31 @@ namespace HHExplorer
 
         }//ItemSelected
 
-     }//class end
+    }//class end
 
 }//namespace end
+
+/*
+//using System.Web;
+using Xamarin.Forms;
+
+namespace News.Views
+{
+    public partial class ArticleView : ContentPage
+    {
+        //Here is where you show the news in Full page
+        public ArticleView()
+        {
+            InitializeComponent();
+         }
+        public ArticleView(string Url)
+        {
+            InitializeComponent();
+            BindingContext = new UrlWebViewSource
+            {
+                Url = "http://dzen.ru"//HttpUtility.UrlDecode(Url)
+            };
+        }
+    }
+}
+*/

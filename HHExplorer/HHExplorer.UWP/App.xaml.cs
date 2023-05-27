@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace HHExplorer.UWP
+namespace News.UWP
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
