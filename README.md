@@ -8,10 +8,17 @@ RU only. Только для России.
 ## Screenshots. Скриншоты
 ![](Images/shot1.png)
 ![](Images/shot2.png)
+![](Images/shot3.png)
 
 ## Current Status
 - Damaged / transformed to "HH concept" (idea only; horizontal menu added). Функционал разрушен, счас это всё лишь "концепт" нового HH...
 - Min. Win. os. build = 15063 (No Astoria compatibility). Минимальная версия сборки Windows изменена на 15063 (совместимость с Astoria нарушена) 
+- Auth (Login) page added. No settings store at now.
+- Android/iOS targets are only "dummies" (stubs) at now.
+
+## How to get your HH credentials?
+- Follow https://dev.hh.ru   
+- Modify HHExplorer\HHExplorer\Api\HHCOnfiguration.cs
 
 ## TODO
 - Add Map. Добавить Карту.

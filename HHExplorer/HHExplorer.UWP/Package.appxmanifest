@@ -46,6 +46,16 @@
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
+
+      <Extensions>  
+        <uap:Extension Category="windows.protocol">  
+          <uap:Protocol Name="com.vipxam.webauthenticator-12345" ReturnResults="optional">  
+            <uap:Logo>Assets\StoreLogo.backup.png</uap:Logo>  
+            <uap:DisplayName>HHWebAuthenticator</uap:DisplayName>  
+          </uap:Protocol>  
+        </uap:Extension>  
+      </Extensions>
+
     </Application>
   </Applications>
 

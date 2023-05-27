@@ -12,11 +12,11 @@ using Newtonsoft.Json;
 
 namespace HHLibrary
 {
-    public class RestService
+    public class HHRestService
     {
         HttpClient _client;
 
-        public RestService()
+        public HHRestService()
         {
             _client = new HttpClient();
                       

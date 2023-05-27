@@ -160,6 +160,10 @@
       <Project>{13D88F3C-BC03-4A08-915A-F301CEB1EB2D}</Project>
       <Name>HHExplorer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Essentials\Xamarin.Essentials.csproj">
+      <Project>{85c97a91-4b09-4200-b08b-9df294c9cf6f}</Project>
+      <Name>Xamarin.Essentials</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="News.UWP_TemporaryKey.pfx" />
@@ -170,7 +174,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadXFormsNugetUpgradeInfoBarHHExplorerUWPHideInfoBar="True" XamarinHotReloadXFormsNugetUpgradeInfoBarNewsUWPHideInfoBar="True" />
+      <UserProperties XamarinHotReloadXFormsNugetUpgradeInfoBarNewsUWPHideInfoBar="True" XamarinHotReloadXFormsNugetUpgradeInfoBarHHExplorerUWPHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

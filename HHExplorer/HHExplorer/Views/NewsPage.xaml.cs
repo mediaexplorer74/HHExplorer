@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using HHLibrary;
+using HHWebAuthenticator.HH;
 using News.Models;
 using News.Services;
 //using Xamarin.Essentials;
@@ -18,7 +19,7 @@ namespace News.Views
 
     public partial class NewsPage : ContentPage
     {
-        RestService _restService;
+        HHRestService _restService;
 
 
         // 1 Interface connector
@@ -37,7 +38,7 @@ namespace News.Views
             // 4 Interface Init  
             megaClient = DependencyService.Get<IMegaClient>();
 
-            _restService = new RestService();
+            _restService = new HHRestService();
         }
 
         async void OnButtonClicked(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace News.Views
             else
             {
                 List<Vacancy> repositories =
-                    await _restService.GetRepositoriesAsync(Constants.HHAPIGetVacancies
+                    await _restService.GetRepositoriesAsync(HHConfiguration.HHAPIGetVacancies
                     + "?text=" + VacancyName.Text +
                     "&area=1" +
                     "&page=1"
