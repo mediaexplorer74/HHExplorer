@@ -7,9 +7,9 @@ namespace HHWebAuthenticator.HH
     {
         // Credentials
         public const string ClientId        
-          = ""; //client_id
+          = "KL9UN728TH5S1CD95RPOEPHPAPJSPGEF123J5FS0MVEV3UT9J5S85UJJG6LFDQHS"; //client_id
         public const string ClientSecret    
-          = ""; //client_secret
+          = "M8EE75DDHHADRRIJ5GEL5AG5BSUORLRNIJOH2MJ8D86MR7C7D9PTISKC1SOUU7KC"; //client_secret
 
         // Callback
         public const string Callback

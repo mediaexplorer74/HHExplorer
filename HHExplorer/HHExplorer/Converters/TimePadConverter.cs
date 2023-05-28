@@ -1,4 +1,5 @@
-﻿
+﻿// TimePadConverter (not used at now)
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,8 +8,10 @@ using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Linq;
 using HHLibrary;
 
+// HH.Converters namespace
 namespace HH.Converters
 {
+    // TimePadConverter class
     internal class TimePadConverter
     {
         // TimePadItem ConvertJsonToPocketItem(JToken itemObject)
@@ -91,7 +94,7 @@ namespace HH.Converters
             return hhItem;
 
         }//ConvertJsonToPocketItem
-
        
-    }
-}
+    }//class end
+
+}//namespace end

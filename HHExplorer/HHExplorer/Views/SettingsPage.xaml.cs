@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Settings Page
+
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using HHLibrary.Models;
@@ -7,23 +9,47 @@ using HHWebAuthenticator.HH;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 
-namespace News.Views
+// HHExplorer.Views namespace
+namespace HHExplorer.Views
 {
-    public partial class AuthPage : ContentPage
+
+    // SettingsPage class
+    public partial class SettingsPage : ContentPage
     {
-        public AuthPage()
+        // init settings page 
+        public SettingsPage()
         {
             InitializeComponent();
             if (!App.UserLogined)
             {
-                LoginBtn.Text = "Login";
+                // User not "logined" yet
+
+                LoginBtn.Text = "Get user access token";
             }
             else
             {
-                LoginBtn.Text = "Log out";
-            }
-        }
+                // User "logined"
 
+                Debug.WriteLine("HH Access token: " + App.AccessToken);
+                TBox1.Text = App.AccessToken; 
+
+                LoginBtn.Text = "Forget user access token";
+            }
+        }//SettingsPage
+
+
+        // handle access token saving...
+        public async Task SaveTokenBtn_Clicked(Object sender, EventArgs e)
+        {
+            App.AccessToken = TBox1.Text;
+
+            //store "accesstoken" settings
+            Preferences.Set("accesstoken", App.AccessToken);
+
+        }//SaveTokenBtn_Clicked
+
+
+        // auth / login deals
         public async Task Login_Button_Clicked(Object sender, EventArgs e)
         {
             if (!App.UserLogined)
@@ -38,9 +64,11 @@ namespace News.Views
                 {
                     //this.Title = "AT=" + App.AccessToken;
                     Debug.WriteLine("[i] User logined!");
-                    LoginBtn.Text = "Log out";
+
+                    LoginBtn.Text = "Forget user access token";
 
                     //await this.Navigation.PushAsync(new UserDetailsPage(),true);
+                    TBox1.Text = App.AccessToken;
 
                     //store "accesstoken" settings
                     Preferences.Set("accesstoken", App.AccessToken);
@@ -59,11 +87,12 @@ namespace News.Views
                       + ex.Message);
                 }
 
-                LoginBtn.Text = "Login";
+                LoginBtn.Text = "Get user access token";
             }
-            return;
-        }
 
+        }//Login_Button_Clicked
+
+        // HH Authentication
         async Task StartHHAuthenticationAsync()
         {
             WebAuthenticatorHandler authenticator = new WebAuthenticatorHandler();
@@ -103,8 +132,10 @@ namespace News.Views
             //await 
             //this.Navigation.PushAsync(new UserDetailsPage());
 
-            Debug.WriteLine("[i] We can not go to UserDetailsPage :(");
-        }
+            //Debug.WriteLine("[i] We can not go to UserDetailsPage :(");
 
-    }
-}
+        }//StartHHAuthenticationAsync
+
+    }//class end
+
+}//namespace end

@@ -1,13 +1,18 @@
-﻿using System;
+﻿// HHWebAuthenticator handler
+
+using System;
 using System.Threading.Tasks;
 using HHWebAuthenticator.HH;
 using System.Diagnostics;
 using Xamarin.Essentials;
 
+// HHWebAuthenticator class
 namespace HHWebAuthenticator
 {
+    // WebAuthenticatorHandler class
     public class WebAuthenticatorHandler
     {
+        // FetchHHCode
         public async Task<string> FetchHHCode()
         {
             string code = "";
@@ -34,8 +39,9 @@ namespace HHWebAuthenticator
             }
             Debug.WriteLine($"FetchHHCode : {code}");
             return code;
-        } 
-    }
 
-    
-}
+        }//FetchHHCode 
+
+    }//class end
+        
+}//namespace end

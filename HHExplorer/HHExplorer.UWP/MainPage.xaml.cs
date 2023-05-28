@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace News.UWP
+namespace HHExplorer.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace News.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new News.App());
+            LoadApplication(new HHExplorer.App());
         }
     }
 }

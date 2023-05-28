@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace News.Models
+namespace HHExplorer.Models
 {
     public class NewsItem
     {

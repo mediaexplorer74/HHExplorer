@@ -1,4 +1,6 @@
-﻿using System;
+﻿// ResumesPage
+
+using System;
 using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Net.Http;
@@ -8,48 +10,57 @@ using Newtonsoft.Json;
 using Xamarin.Forms;
 using HHLibrary.Models;
 
-namespace News.Views
+// HHExplorer.Views namespace
+namespace HHExplorer.Views
 {
+    // ResumesPage class
     public partial class ResumesPage : ContentPage
     {
-        //Models.HHResponseModel HHAccessToken;
 
+        // ResumesPage
         public ResumesPage()
         {
             this.InitializeComponent();
 
             this.Title = "Resume group tasks";
 
-            //HHAccessToken = HHConfiguration.TokenResponse;
-            Debug.WriteLine("HH Access token: " + App.AccessToken); //HHConfiguration.TokenResponse.access_token);
-            TBox1.Text = "HH Access token: " + App.AccessToken; //HHConfiguration.TokenResponse.access_token;
+            Debug.WriteLine("HH Access token: " + App.AccessToken); 
+            //TBox1.Text = App.AccessToken; 
 
-            //FetchUserActivity();
-            //FetchUserProfile();
-            TBox1.Text = TBox1.Text + " " 
-                + $"Press the RESUME REFRESH button to refresh all your resumes";
+            TBox1.Text = $"Press the RESUME REFRESH button to refresh all your resumes";
 
-        }
+        }//ResumesPage
 
-
+        /*
+        // FetchUserProfile
         void FetchUserProfile()
         {
-            HHLibrary.Models.HHResponseModel _tokenResponse = HHConfiguration.TokenResponse;
-            if (!string.IsNullOrEmpty(_tokenResponse.access_token) 
+            HHLibrary.Models.HHResponseModel _tokenResponse 
+                = HHConfiguration.TokenResponse;
+            
+            if (!string.IsNullOrEmpty(_tokenResponse.access_token)
                 && !string.IsNullOrEmpty(_tokenResponse.user_id))
+            {
                 new HHAPIService().FetchUserProfileAsync();
-        }
+            }
 
+        }//FetchUserProfile
+
+
+        // FetchUserActivity
         void FetchUserActivity()
         {
             var _tokenResponse = HHConfiguration.TokenResponse;
             var todayDate = DateTime.Now.ToString("yyyy-MM-dd");
-            if (!string.IsNullOrEmpty(_tokenResponse.access_token) 
+            if (!string.IsNullOrEmpty(_tokenResponse.access_token)
                 && !string.IsNullOrEmpty(_tokenResponse.user_id))
+            {
                 new HHAPIService().FetchUserActivityForDateAsync(
                     _tokenResponse.user_id, todayDate);
-        }
+            }
 
+        }//FetchUserActivity
+        */
 
         // ResumeUpdateButtonClick
         private async void ResumeUpdateButtonClick(object sender, EventArgs e)
@@ -80,35 +91,33 @@ namespace News.Views
                 catch (Exception ex)
                 {
                     Debug.WriteLine("Exception: " + ex.Message);
-                    TBox1.Text = "Error: bad user access token (app access token used).";
+                    TBox1.Text = "Error: bad user access token.";
            
                     Debug.WriteLine("Exception: " + ex.Message);
                     return;
                 }
 
                 Debug.WriteLine($"Resume content: {content}");
-                TBox1.Text = $"Resume content: {content}";
+                //TBox1.Text = $"Resume content: {content}";
 
                 ResumeList Resumes = JsonConvert.DeserializeObject<ResumeList>(content);
 
                 Debug.WriteLine($"Resumes count: {Resumes.Items.Count}");
-                TBox1.Text = TBox1.Text  + " " + $"Resume count: {Resumes.Items.Count}";
+                TBox1.Text = $"Resume count: {Resumes.Items.Count}";
 
                 foreach (ResumeItem Resume in Resumes.Items)
                 {
-                    // Delay 2s
-                    //Thread.Sleep(2000);
-
                     ResumeRefreshAsync(Resume.Id);
                 }
 
             }//using...
 
+            //TBox1.Text = "Success! All your resumes date-time updated/refreshed :)";
 
-        }//ResumeUpdateButtonClick end
+        }//ResumeUpdateButtonClick
 
 
-        // 1 resume date-time update
+        // ResumeRefreshAsync: 1 resume date-time update
         async void ResumeRefreshAsync(string ResumeId)
         {
             // - A -
@@ -133,28 +142,23 @@ namespace News.Views
                 catch (Exception ex)
                 {
                     Debug.WriteLine("Exception: " + ex.Message);
-                    TBox1.Text = TBox1.Text + " " 
-                        + "Error: bad user access token (app access token used).";
+                    TBox1.Text = "Error: bad user access token!";
                    
                     Debug.WriteLine("Exception: " + ex.Message);
                     return;
                 }
 
                 Debug.WriteLine($"Resume content: {content}");
-                TBox1.Text = TBox1.Text + " " + $"Resume content: {content}";
+                //TBox1.Text = $"Resume content: {content}";
 
                 DateTime nextPublishAt = 
                     JObject.Parse(content)["next_publish_at"].ToObject<DateTime>();
 
                 Debug.WriteLine($"Time to update the resume: {nextPublishAt}");
-                TBox1.Text = TBox1.Text + " "
-                    + $"Time to update the resume: {nextPublishAt}";
+                //TBox1.Text = $"Time to update the resume: {nextPublishAt}";
 
 
                 // 2 Try to update resume
-
-                // Delay 2s
-                //Thread.Sleep(2000);
 
                 HttpResponseMessage updateResponse =
                     await client.PostAsync($"/resumes/{ResumeId}/publish", 
@@ -162,11 +166,26 @@ namespace News.Views
 
                 string contents = await updateResponse.Content.ReadAsStringAsync();
 
+                // string truncate
+                string resume_short_id = ResumeId.Substring(0,3) + "...";
+
                 Debug.WriteLine($"Update Response: {contents}");
-                TBox1.Text = TBox1.Text + " " + $"Update Response: {contents}";
 
-            }
-        }
+                //TBox1.Text = $"Update Response: {contents}";
+                if (contents == "")
+                {
+                    TBox1.Text = $"Resume (id={resume_short_id}) refreshed :)";
+                }
+                else
+                {
+                    TBox1.Text = $"Oops, resume (id={resume_short_id}) already refreshed. " +
+                        $"Try later!";
+                }
 
-    }
-}
+            }//using...
+
+        }//ResumeRefreshAsync
+
+    }//class end
+
+}//namespace end

@@ -2,7 +2,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="News.Views.ResumesPage"
+    x:Class="HHExplorer.Views.ResumesPage"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     BackgroundColor="#2196F3"
     ios:Page.UseSafeArea="true" >
@@ -11,12 +11,12 @@
         <StackLayout>
           <Frame BackgroundColor="#2196F3">
               
-            <Label Text="Link HH Account" HorizontalTextAlignment="Center" 
+            <Label Text="Automation / Автоматизация" HorizontalTextAlignment="Center" 
                    TextColor="White"/>
           </Frame>
 
           <Button x:Name="Btn1" 
-                            Text="Refresh all your resumes" 
+                            Text="Refresh resumes / Освежить все резюме" 
                             Clicked="ResumeUpdateButtonClick"/>
 
           <Entry x:Name="TBox1" Text="" 

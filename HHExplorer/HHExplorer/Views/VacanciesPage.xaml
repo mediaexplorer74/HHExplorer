@@ -7,7 +7,7 @@
     xmlns:system = "clr-namespace:System;assembly=netstandard"
     Title="Safe Area"
     ios:Page.UseSafeArea="true"
-    x:Class = "News.Views.VacanciesPage">
+    x:Class = "HHExplorer.Views.VacanciesPage">
     <StackLayout>
         <!--Button Text="Refresh" Clicked="Button_OnClicked"></Button-->
 
@@ -20,6 +20,7 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Center">
         </Label>
+        
         <Grid>
             <ActivityIndicator IsRunning="False" x:Name="ActivityIndicator" 
                                HorizontalOptions="Center"

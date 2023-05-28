@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 
-namespace News
+namespace HHExplorer
 {
     public partial class App : Application
     {

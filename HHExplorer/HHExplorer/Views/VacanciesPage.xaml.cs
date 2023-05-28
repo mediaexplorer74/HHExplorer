@@ -1,4 +1,6 @@
-﻿using System;
+﻿// VacanciesPage
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -7,16 +9,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using HHLibrary;
 using HHWebAuthenticator.HH;
-using News.Models;
-using News.Services;
-//using Xamarin.Essentials;
+using HHExplorer.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace News.Views
+
+// HHExplorer.Views namespace
+namespace HHExplorer.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
+    // VacanciesPage class
     public partial class VacanciesPage : ContentPage
     {
         HHRestService _restService;
@@ -31,6 +34,7 @@ namespace News.Views
             void RunUri(string s_uri);
         }
 
+        // VacanciesPage
         public VacanciesPage()
         {
             InitializeComponent();
@@ -39,8 +43,11 @@ namespace News.Views
             megaClient = DependencyService.Get<IMegaClient>();
 
             _restService = new HHRestService();
-        }
 
+        }//VacanciesPage
+
+
+        // OnButtonClicked
         async void OnButtonClicked(object sender, EventArgs e)
         {
             if (VacancyName.Text == null || VacancyName.Text == "")
@@ -50,7 +57,8 @@ namespace News.Views
             else
             {
                 List<Vacancy> repositories =
-                    await _restService.GetRepositoriesAsync(HHConfiguration.HHAPIGetVacancies
+                    await _restService.GetRepositoriesAsync(
+                        HHConfiguration.HHAPIGetVacancies
                     + "?text=" + VacancyName.Text +
                     "&area=1" +
                     "&page=1"
@@ -64,7 +72,7 @@ namespace News.Views
         }//OnButtonClicked
 
 
-        // !!! ItemSelected handling
+        // OnItemSelected: ItemSelected handling
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Debug.WriteLine("[i] ListView Item Clicked!");
@@ -112,58 +120,5 @@ namespace News.Views
         }//ItemSelected
 
     }//class end
-
-    /*
-    public partial class VacanciesPage : ContentPage
-    {
-        private readonly VacanciesService _vacanciesService;
-        private VacanciesCategory _category;
-        public VacanciesPage()
-        {
-            InitializeComponent();
-            _newsService = new();
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            
-            _category = (NewsCategory) Enum.Parse(typeof(NewsCategory), Title);
-            Label.Text = $"Today's {_category} Headlines";
-
-            //MainThread.BeginInvokeOnMainThread(async () => { await LoadNews();});
-            LoadNews();
-        }
-
-        private async Task LoadNews()
-        {
-            try
-            {
-                NewsGroup result = await _newsService.GetNewsAsync(_category);
-                NewsList.ItemsSource = result.Articles;
-
-            }
-            catch (Exception ex)
-            {
-                //await DisplayAlert("Error", ex.Message, "Dismiss");
-                Debug.WriteLine("[ex] " + ex.Message);
-            }
-        }
-
-        private async void NewsList_OnItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            var tappedItem = (NewsItem)e.Item;
-            //await Navigation.PushAsync(new ArticleView(tappedItem.Url));
-            await Navigation.PushAsync(new ArticleView());
-        }
-
-        private async void Button_OnClicked(object sender, EventArgs e)
-        {
-            ActivityIndicator.IsRunning = true;
-            await Task.Delay(5000);
-            ActivityIndicator.IsRunning = false;
-            await LoadNews();
-        }
-    }
-    */
-}
+     
+}//namespace end

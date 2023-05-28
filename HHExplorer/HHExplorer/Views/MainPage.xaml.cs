@@ -1,4 +1,6 @@
-﻿using System;
+﻿// MainPage
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,24 +9,24 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using News.Models;
+using HHExplorer.Models;
 
-namespace News.Views
+
+// HHExplorer.Views namespace
+namespace HHExplorer.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
  
+    // Main Page (tabbed page)
     public partial class MainPage : TabbedPage
     {
+        // MainPage
         public MainPage()
         {
             InitializeComponent();
 
-        }
-        private async void NewsList_OnItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            var tappedItem = (NewsItem)e.Item;
-            //await Navigation.PushAsync(new ArticleView(tappedItem.Url));
-            await Navigation.PushAsync(new ArticleView());
-        }
-    }
-}
+        }//MainPage
+       
+    }//class end
+
+}//namespace end

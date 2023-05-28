@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace News.Models
+namespace HHExplorer.Models
 {
     public enum NewsCategory
     {

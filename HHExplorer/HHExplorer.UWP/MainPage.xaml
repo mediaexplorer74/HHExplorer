@@ -1,9 +1,9 @@
 ﻿<forms:WindowsPage
-    x:Class="News.UWP.MainPage"
+    x:Class="HHExplorer.UWP.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:forms="using:Xamarin.Forms.Platform.UWP"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:News.UWP"
+    xmlns:local="using:HHExplorer.UWP"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

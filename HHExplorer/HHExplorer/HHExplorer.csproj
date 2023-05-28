@@ -12,26 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="ModelsSampleData\sample business.xml" />
-    <None Remove="ModelsSampleData\sample entertainment.xml" />
-    <None Remove="ModelsSampleData\sample general.xml" />
-    <None Remove="ModelsSampleData\sample health.xml" />
-    <None Remove="ModelsSampleData\sample science.xml" />
-    <None Remove="ModelsSampleData\sample sports.xml" />
-    <None Remove="ModelsSampleData\sample technology.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="ModelsSampleData\sample business.xml" />
-    <EmbeddedResource Include="ModelsSampleData\sample entertainment.xml" />
-    <EmbeddedResource Include="ModelsSampleData\sample general.xml" />
-    <EmbeddedResource Include="ModelsSampleData\sample health.xml" />
-    <EmbeddedResource Include="ModelsSampleData\sample science.xml" />
-    <EmbeddedResource Include="ModelsSampleData\sample sports.xml" />
-    <EmbeddedResource Include="ModelsSampleData\sample technology.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
@@ -44,8 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\AuthPage.xaml.cs">
-      <DependentUpon>AuthPage.xaml</DependentUpon>
+    <Compile Update="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\VacanciesPage.xaml.cs">
       <DependentUpon>VacanciesPage.xaml</DependentUpon>
@@ -59,16 +39,10 @@
     <EmbeddedResource Update="Views\AboutPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ArticleView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ConsolePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\AuthPage.xaml">
+    <EmbeddedResource Update="Views\SettingsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ResumesPage.xaml">
