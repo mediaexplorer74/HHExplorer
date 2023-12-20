@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace News.iOS
+namespace HHExplorer.iOS
 {
     public class Application
     {

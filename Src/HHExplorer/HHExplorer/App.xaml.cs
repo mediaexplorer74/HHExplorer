@@ -7,7 +7,6 @@ namespace HHExplorer
 {
     public partial class App : Application
     {
-        // Dirty code (draft)
         public static string AccessToken = "";
         public static bool UserLogined = false;
 

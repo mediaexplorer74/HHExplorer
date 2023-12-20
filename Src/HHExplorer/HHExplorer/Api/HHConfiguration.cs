@@ -7,9 +7,9 @@ namespace HHWebAuthenticator.HH
     {
         // Credentials
         public const string ClientId        
-          = ""; //client_id
+          = "xxxxxxxxxxxx"; //client_id
         public const string ClientSecret    
-          = ""; //client_secret
+          = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"; //client_secret
 
         // Callback
         public const string Callback

@@ -21,7 +21,7 @@ namespace HHExplorer.Models
         public DateTime PublishedAt { get; set; }
         public string Content { get; set; }
     }
-    //[XmlRoot("NewsApiData", Namespace = "http://mynamespace/test/")] //This line needed only for the SampleData
+    
     public class NewsApiData
     {
         public string Status { get; set; }

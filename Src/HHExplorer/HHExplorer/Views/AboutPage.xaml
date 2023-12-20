@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HHExplorer.Views.AboutPage"
-             Title="About News">
+             Title="About HHExplorer">
 
     <StackLayout>
         <Frame BackgroundColor="DarkBlue" Padding="24" CornerRadius="0">
-            <Label Text="HHExplorer 1.1.2" HorizontalTextAlignment="Center" 
+            <Label Text="HHExplorer 1.1.3" HorizontalTextAlignment="Center" 
                    TextColor="White" FontSize="Large"/>
         </Frame>
         <Label Text="News in Xamarin.Forms" FontSize="Medium"/>
